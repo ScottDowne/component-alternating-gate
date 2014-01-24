@@ -55,7 +55,6 @@
         Array.prototype.forEach.call(this.querySelectorAll("ceci-broadcast"), function(broadcast) {
           activeBroadcasts.push(broadcast.getAttribute("from"));
         });
-        console.log(activeBroadcasts);
 
         var nextBroadcast = activeBroadcasts.indexOf(this.lastBroadcast) + 1;
         nextBroadcast %= activeBroadcasts.length;
