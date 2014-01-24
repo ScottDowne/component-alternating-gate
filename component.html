@@ -1,0 +1,70 @@
+<polymer-element name="ceci-alternating-gate" attributes="" extends="ceci-element">
+  <template>
+    <div></div>
+    <shadow></shadow>
+    <script type="text/json" id="ceci-definition">
+      {
+        "tags": ["alternating-gate", "low-level"],
+        "thumbnail": "./thumbnail.png",
+        "broadcasts": {
+          "A": {
+            "label": "Output A",
+            "description": "The first broadcast in the rotation.",
+            "default": "green"
+          },
+          "B": {
+            "label": "Output B",
+            "description": "The second broadcast in the rotation.",
+            "default": "yellow"
+          },
+          "C": {
+            "label": "Output C",
+            "description": "The third broadcast in the rotation."
+          },
+          "D": {
+            "label": "Output D",
+            "description": "The fourth broadcast in the rotation."
+          },
+          "E": {
+            "label": "Output E",
+            "description": "The fifth broadcast in the rotation."
+          }
+        },
+        "listeners": {
+          "input": {
+            "description": "The input that alternates out the broadcasts.",
+            "label": "Input",
+            "default": true
+          }
+        },
+        "attributes": {
+        }
+      }
+    </script>
+  </template>
+  <script>
+    Polymer('ceci-alternating-gate', {
+      ready: function() {
+        this.super();
+        this.lastBroadcast = null;
+
+        var self = this;
+      },
+      input: function(value) {
+        var activeBroadcasts = [];
+        Array.prototype.forEach.call(this.querySelectorAll("ceci-broadcast"), function(broadcast) {
+          activeBroadcasts.push(broadcast.getAttribute("from"));
+        });
+        console.log(activeBroadcasts);
+
+        var nextBroadcast = activeBroadcasts.indexOf(this.lastBroadcast) + 1;
+        nextBroadcast %= activeBroadcasts.length;
+
+        nextBroadcast = activeBroadcasts[nextBroadcast];
+
+        this.broadcast(nextBroadcast, value);
+        this.lastBroadcast = nextBroadcast;
+      }
+    });
+  </script>
+</polymer-element>
