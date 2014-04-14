@@ -53,7 +53,7 @@
         this.lastBroadcast = null;
         var self = this;
       },
-      enteredView : function(){
+      domReady : function(){
         var that = this;
         this.addEventListener("channelUpdated",function(){
           this.updateChannels();
@@ -68,7 +68,10 @@
         Array.prototype.forEach.call(this.$.channels.querySelectorAll(".output-channel"), function(c) {
           c.classList.remove("next-up");
         });
-        this.$.channels.querySelector("." + this.nextBroadcast).classList.add("next-up");
+        var selected = this.$.channels.querySelector("." + this.nextBroadcast);
+        if(selected){
+          selected.classList.add("next-up");
+        }
       },
       updateChannels: function(){
         var that = this;
