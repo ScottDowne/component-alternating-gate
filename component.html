@@ -73,9 +73,7 @@
       updateChannels: function(){
         var that = this;
         this.activeBroadcasts = [];
-
         that.$.channels.innerHTML = "";
-
         Array.prototype.forEach.call(this.querySelectorAll("ceci-broadcast"), function(broadcast) {
           that.activeBroadcasts.push(broadcast.getAttribute("from"));
           var channel = document.createElement("div");
@@ -84,9 +82,7 @@
           channel.innerHTML = broadcast.getAttribute("from");
           that.$.channels.appendChild(channel);
         });
-
       },
-
       input: function(value) {
         this.broadcast(this.nextBroadcast, value);
         this.nextBroadcast = this.activeBroadcasts.indexOf(this.lastBroadcast) + 1;
