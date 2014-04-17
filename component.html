@@ -3,48 +3,48 @@
     <link rel="stylesheet" href="component.css"></link>
     <div id="channels"></div>
     <shadow></shadow>
-    <script type="text/json" id="ceci-definition">
-      {
-        "tags": ["alternating-gate", "low-level"],
-        "thumbnail": "./thumbnail.png",
-        "name": "Alternating Gate",
-        "description": "Alternates output between set broadcasts from a single input",
-        "broadcasts": {
-          "A": {
-            "label": "Output A",
-            "description": "The first broadcast in the rotation.",
-            "default": "green"
-          },
-          "B": {
-            "label": "Output B",
-            "description": "The second broadcast in the rotation.",
-            "default": "yellow"
-          },
-          "C": {
-            "label": "Output C",
-            "description": "The third broadcast in the rotation."
-          },
-          "D": {
-            "label": "Output D",
-            "description": "The fourth broadcast in the rotation."
-          },
-          "E": {
-            "label": "Output E",
-            "description": "The fifth broadcast in the rotation."
-          }
-        },
-        "listeners": {
-          "input": {
-            "description": "The input that alternates out the broadcasts.",
-            "label": "Input",
-            "default": true
-          }
-        },
-        "attributes": {
-        }
-      }
-    </script>
   </template>
+  <ceci-definition>
+    {
+      "tags": ["alternating-gate", "low-level"],
+      "thumbnail": "./thumbnail.png",
+      "name": "Alternating Gate",
+      "description": "Alternates output between set broadcasts from a single input",
+      "broadcasts": {
+        "A": {
+          "label": "Output A",
+          "description": "The first broadcast in the rotation.",
+          "default": "green"
+        },
+        "B": {
+          "label": "Output B",
+          "description": "The second broadcast in the rotation.",
+          "default": "yellow"
+        },
+        "C": {
+          "label": "Output C",
+          "description": "The third broadcast in the rotation."
+        },
+        "D": {
+          "label": "Output D",
+          "description": "The fourth broadcast in the rotation."
+        },
+        "E": {
+          "label": "Output E",
+          "description": "The fifth broadcast in the rotation."
+        }
+      },
+      "listeners": {
+        "input": {
+          "description": "The input that alternates out the broadcasts.",
+          "label": "Input",
+          "default": true
+        }
+      },
+      "attributes": {
+      }
+    }
+  </ceci-definition>
   <script>
     Polymer('ceci-alternating-gate', {
       nextBroadcast : "",
