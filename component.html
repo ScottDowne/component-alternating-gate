@@ -59,10 +59,9 @@
         this.lastBroadcast = null;
         this.count = 0;
         this.super();
-
       },
       countbeforeswitch: 1,
-      domReady : function(){
+      attached : function(){
         var that = this;
         this.addEventListener("channelUpdated",function(){
           this.updateChannels();
@@ -72,6 +71,7 @@
         this.nextBroadcast = this.activeBroadcasts[0];
         this.lastBroadcast = this.activeBroadcasts[0];
         this.updateUI();
+        this.super();
       },
       updateUI : function(){
         Array.prototype.forEach.call(this.$.channels.querySelectorAll(".output-channel"), function(c) {
